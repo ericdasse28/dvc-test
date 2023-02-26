@@ -1,0 +1,45 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python dvc_test/prepare.py
+    deps:
+    - path: data/raw/
+      md5: 392859941730af73895d057ac48ad939.dir
+      size: 106557364
+      nfiles: 13398
+    - path: dvc_test/prepare.py
+      md5: fdf0d5530ff42da0b527a9ef23176a18
+      size: 1249
+    outs:
+    - path: data/prepared/test.csv
+      md5: 3c5caae0198ae968a5d12535149a7211
+      size: 69913
+    - path: data/prepared/train.csv
+      md5: c17572c5644531c9956aab006d2fab31
+      size: 174238
+  train:
+    cmd: python dvc_test/train.py
+    deps:
+    - path: data/prepared/train.csv
+      md5: c17572c5644531c9956aab006d2fab31
+      size: 174238
+    - path: dvc_test/train.py
+      md5: 8afd0b487365179d1b8bcca7e57a64cd
+      size: 1324
+    outs:
+    - path: model/model.joblib
+      md5: be797c70c6ba86ba4098fd9a3754b6f1
+      size: 241148
+  evaluate:
+    cmd: python dvc_test/evaluate.py
+    deps:
+    - path: dvc_test/evaluate.py
+      md5: bf1ab6f37720ecbfdcda6a90397105ca
+      size: 644
+    - path: model/model.joblib
+      md5: be797c70c6ba86ba4098fd9a3754b6f1
+      size: 241148
+    outs:
+    - path: metrics/accuracy.json
+      md5: 717dd98829b5ae4f3c24cdaa41c73692
+      size: 32
