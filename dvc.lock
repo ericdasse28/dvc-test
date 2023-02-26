@@ -24,12 +24,12 @@ stages:
       md5: c17572c5644531c9956aab006d2fab31
       size: 174238
     - path: dvc_test/train.py
-      md5: 8afd0b487365179d1b8bcca7e57a64cd
-      size: 1324
+      md5: fba02db450a577e4eef0ce583a5dca3e
+      size: 1325
     outs:
     - path: model/model.joblib
-      md5: be797c70c6ba86ba4098fd9a3754b6f1
-      size: 241148
+      md5: 6c6e1a035bd8775e4836d4a3623df485
+      size: 1706857
   evaluate:
     cmd: python dvc_test/evaluate.py
     deps:
@@ -37,9 +37,9 @@ stages:
       md5: bf1ab6f37720ecbfdcda6a90397105ca
       size: 644
     - path: model/model.joblib
-      md5: be797c70c6ba86ba4098fd9a3754b6f1
-      size: 241148
+      md5: 6c6e1a035bd8775e4836d4a3623df485
+      size: 1706857
     outs:
     - path: metrics/accuracy.json
-      md5: 717dd98829b5ae4f3c24cdaa41c73692
+      md5: 760e9c438efaf737b118d12344d27a90
       size: 32
