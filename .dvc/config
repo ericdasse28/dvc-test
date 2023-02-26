@@ -1,4 +1,6 @@
 [core]
     remote = remote_storage
+[cache]
+    dir = /home/ericdasse/shared_cache/
 ['remote "remote_storage"']
     url = /home/ericdasse/dvc_remote/
